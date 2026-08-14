@@ -94,6 +94,7 @@ struct NotificationIslandWidget: Widget {
         case "instagram": return "Instagram"
         case "gmail": return "Gmail"
         case "messages": return "Messages"
+        case "retro": return "Retro"
         default: return "LINE"
         }
     }
@@ -103,6 +104,7 @@ struct NotificationIslandWidget: Widget {
         case "instagram": return URL(string: "notificationisland://instagram")
         case "gmail": return URL(string: "notificationisland://gmail")
         case "messages": return URL(string: "notificationisland://messages")
+        case "retro": return URL(string: "notificationisland://retro")
         default: return URL(string: "notificationisland://line")
         }
     }
