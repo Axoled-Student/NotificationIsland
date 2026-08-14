@@ -17,6 +17,7 @@
 		100000000000000000000009 /* Instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* Instagram.png */; };
 		100000000000000000000010 /* Gmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* Gmail.png */; };
 		100000000000000000000011 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000015 /* Messages.png */; };
+		100000000000000000000012 /* Retro.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000016 /* Retro.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		200000000000000000000013 /* Instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram.png; sourceTree = "<group>"; };
 		200000000000000000000014 /* Gmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gmail.png; sourceTree = "<group>"; };
 		200000000000000000000015 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
+		200000000000000000000016 /* Retro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Retro.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				200000000000000000000013 /* Instagram.png */,
 				200000000000000000000014 /* Gmail.png */,
 				200000000000000000000015 /* Messages.png */,
+				200000000000000000000016 /* Retro.png */,
 			);
 			path = NotificationIslandWidget;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				100000000000000000000009 /* Instagram.png in Resources */,
 				100000000000000000000010 /* Gmail.png in Resources */,
 				100000000000000000000011 /* Messages.png in Resources */,
+				100000000000000000000012 /* Retro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
