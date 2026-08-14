@@ -23,6 +23,7 @@
 		100000000000000000000015 /* Investment.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000019 /* Investment.png */; };
 		100000000000000000000016 /* Taishin.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000020 /* Taishin.png */; };
 		100000000000000000000017 /* StressWatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000021 /* StressWatch.png */; };
+		100000000000000000000018 /* Reddit.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000022 /* Reddit.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,7 @@
 		200000000000000000000019 /* Investment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Investment.png; sourceTree = "<group>"; };
 		200000000000000000000020 /* Taishin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Taishin.png; sourceTree = "<group>"; };
 		200000000000000000000021 /* StressWatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StressWatch.png; sourceTree = "<group>"; };
+		200000000000000000000022 /* Reddit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reddit.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				200000000000000000000019 /* Investment.png */,
 				200000000000000000000020 /* Taishin.png */,
 				200000000000000000000021 /* StressWatch.png */,
+				200000000000000000000022 /* Reddit.png */,
 			);
 			path = NotificationIslandWidget;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				100000000000000000000015 /* Investment.png in Resources */,
 				100000000000000000000016 /* Taishin.png in Resources */,
 				100000000000000000000017 /* StressWatch.png in Resources */,
+				100000000000000000000018 /* Reddit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

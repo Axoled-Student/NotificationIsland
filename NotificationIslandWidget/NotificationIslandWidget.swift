@@ -100,6 +100,7 @@ struct NotificationIslandWidget: Widget {
         case "investment": return "Investment"
         case "taishin": return "Taishin"
         case "stressWatch": return "StressWatch"
+        case "reddit": return "Reddit"
         default: return "LINE"
         }
     }
@@ -115,6 +116,7 @@ struct NotificationIslandWidget: Widget {
         case "investment": return URL(string: "notificationisland://investment")
         case "taishin": return URL(string: "notificationisland://taishin")
         case "stressWatch": return URL(string: "notificationisland://stressWatch")
+        case "reddit": return URL(string: "notificationisland://reddit")
         default: return URL(string: "notificationisland://line")
         }
     }
