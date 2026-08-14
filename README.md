@@ -121,16 +121,3 @@ Dynamic Island
 - Shortcuts / App Intents
 
 製作。
-
-## 💖 贊助支援 (Sponsor)
-
-如果您覺得這個專案對您有幫助，歡迎透過加密貨幣贊助支持開發！
-
-### Polygon (POL / ERC-20 Tokens)
-
-<img width="398" height="581" alt="螢幕擷取畫面 2026-08-14 012349" src="https://github.com/user-attachments/assets/14893ced-5ded-4ba5-bba4-9c88125b43e3" />
-
-* **Network:** Polygon (POS)
-* **Address:** `0xFe8F7ae9526C9dE0CF4E793d4b313340c105E3Be`
-
-> ⚠️ **注意：** 請務必確認轉帳網路為 **Polygon**，切勿使用其他主網轉入以避免資產遺失。
