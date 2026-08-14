@@ -14,40 +14,61 @@ struct NotificationIslandApp: App {
 
         switch url.host {
         case "line":
-            if let appURL = URL(string: "line://") {
-                UIApplication.shared.open(appURL, options: [:]) { success in
-                    if !success, let webURL = URL(string: "https://line.me/") {
-                        UIApplication.shared.open(webURL)
-                    }
-                }
-            }
+            openApp("line://", fallback: "https://line.me/")
 
         case "instagram":
-            if let appURL = URL(string: "instagram://app") {
-                UIApplication.shared.open(appURL, options: [:]) { success in
-                    if !success, let webURL = URL(string: "https://www.instagram.com/") {
-                        UIApplication.shared.open(webURL)
-                    }
-                }
-            }
+            openApp("instagram://app", fallback: "https://www.instagram.com/")
 
         case "gmail":
-            if let appURL = URL(string: "googlegmail://") {
-                UIApplication.shared.open(appURL, options: [:]) { success in
-                    if !success, let webURL = URL(string: "https://mail.google.com/") {
-                        UIApplication.shared.open(webURL)
-                    }
-                }
-            }
+            openApp("googlegmail://", fallback: "https://mail.google.com/")
 
         case "messages":
             // sms:// opens Apple's Messages app.
-            if let appURL = URL(string: "sms:") {
-                UIApplication.shared.open(appURL)
-            }
+            UIApplication.shared.open(URL(string: "sms:")!)
+
+        case "retro":
+            // Retro's web domain is used as the fallback/universal-link target.
+            openApp("https://retro.app", fallback: "https://retro.app")
+
+        case "pikminBloom":
+            // No publicly documented iOS custom URL scheme was found.
+            // Fall back to the App Store listing rather than guessing a scheme.
+            openApp("itms-apps://itunes.apple.com/app/id1556357398",
+                    fallback: "https://apps.apple.com/tw/app/pikmin-bloom/id1556357398")
+
+        case "duolingo":
+            // Publicly documented third-party URL scheme.
+            openApp("duolingo://com.duolingo.DuolingoMobile",
+                    fallback: "https://apps.apple.com/tw/app/duolingo-language-lessons/id570060128")
+
+        case "investment":
+            // 投資先生 (Yuanta Securities), App Store ID 1382114621.
+            openApp("itms-apps://itunes.apple.com/app/id1382114621",
+                    fallback: "https://apps.apple.com/tw/app/id1382114621")
+
+        case "taishin":
+            // 台新銀行行動銀行, App Store ID 388917170.
+            openApp("itms-apps://itunes.apple.com/app/id388917170",
+                    fallback: "https://apps.apple.com/tw/app/id388917170")
+
+        case "stressWatch":
+            // No publicly documented iOS custom URL scheme was found.
+            openApp("itms-apps://itunes.apple.com/app/id6444737095",
+                    fallback: "https://apps.apple.com/tw/app/id6444737095")
 
         default:
             break
+        }
+    }
+
+    private static func openApp(_ appURLString: String, fallback: String) {
+        guard let appURL = URL(string: appURLString),
+              let fallbackURL = URL(string: fallback) else { return }
+
+        UIApplication.shared.open(appURL, options: [:]) { success in
+            if !success {
+                UIApplication.shared.open(fallbackURL)
+            }
         }
     }
 }

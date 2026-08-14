@@ -18,6 +18,11 @@
 		100000000000000000000010 /* Gmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* Gmail.png */; };
 		100000000000000000000011 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000015 /* Messages.png */; };
 		100000000000000000000012 /* Retro.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000016 /* Retro.png */; };
+		100000000000000000000013 /* PikminBloom.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000017 /* PikminBloom.png */; };
+		100000000000000000000014 /* Duolingo.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000018 /* Duolingo.png */; };
+		100000000000000000000015 /* Investment.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000019 /* Investment.png */; };
+		100000000000000000000016 /* Taishin.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000020 /* Taishin.png */; };
+		100000000000000000000017 /* StressWatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000021 /* StressWatch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +56,11 @@
 		200000000000000000000014 /* Gmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gmail.png; sourceTree = "<group>"; };
 		200000000000000000000015 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
 		200000000000000000000016 /* Retro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Retro.png; sourceTree = "<group>"; };
+		200000000000000000000017 /* PikminBloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PikminBloom.png; sourceTree = "<group>"; };
+		200000000000000000000018 /* Duolingo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duolingo.png; sourceTree = "<group>"; };
+		200000000000000000000019 /* Investment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Investment.png; sourceTree = "<group>"; };
+		200000000000000000000020 /* Taishin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Taishin.png; sourceTree = "<group>"; };
+		200000000000000000000021 /* StressWatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StressWatch.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,11 @@
 				200000000000000000000014 /* Gmail.png */,
 				200000000000000000000015 /* Messages.png */,
 				200000000000000000000016 /* Retro.png */,
+				200000000000000000000017 /* PikminBloom.png */,
+				200000000000000000000018 /* Duolingo.png */,
+				200000000000000000000019 /* Investment.png */,
+				200000000000000000000020 /* Taishin.png */,
+				200000000000000000000021 /* StressWatch.png */,
 			);
 			path = NotificationIslandWidget;
 			sourceTree = "<group>";
@@ -208,6 +223,11 @@
 				100000000000000000000010 /* Gmail.png in Resources */,
 				100000000000000000000011 /* Messages.png in Resources */,
 				100000000000000000000012 /* Retro.png in Resources */,
+				100000000000000000000013 /* PikminBloom.png in Resources */,
+				100000000000000000000014 /* Duolingo.png in Resources */,
+				100000000000000000000015 /* Investment.png in Resources */,
+				100000000000000000000016 /* Taishin.png in Resources */,
+				100000000000000000000017 /* StressWatch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

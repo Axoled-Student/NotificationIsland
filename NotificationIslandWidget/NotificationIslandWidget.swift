@@ -95,6 +95,11 @@ struct NotificationIslandWidget: Widget {
         case "gmail": return "Gmail"
         case "messages": return "Messages"
         case "retro": return "Retro"
+        case "pikminBloom": return "PikminBloom"
+        case "duolingo": return "Duolingo"
+        case "investment": return "Investment"
+        case "taishin": return "Taishin"
+        case "stressWatch": return "StressWatch"
         default: return "LINE"
         }
     }
@@ -105,6 +110,11 @@ struct NotificationIslandWidget: Widget {
         case "gmail": return URL(string: "notificationisland://gmail")
         case "messages": return URL(string: "notificationisland://messages")
         case "retro": return URL(string: "notificationisland://retro")
+        case "pikminBloom": return URL(string: "notificationisland://pikminBloom")
+        case "duolingo": return URL(string: "notificationisland://duolingo")
+        case "investment": return URL(string: "notificationisland://investment")
+        case "taishin": return URL(string: "notificationisland://taishin")
+        case "stressWatch": return URL(string: "notificationisland://stressWatch")
         default: return URL(string: "notificationisland://line")
         }
     }
