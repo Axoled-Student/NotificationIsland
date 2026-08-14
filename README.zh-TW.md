@@ -1,4 +1,7 @@
 # NotificationIsland
+<img width="500" height="360" alt="808422338 946440" src="https://github.com/user-attachments/assets/44865a10-4e10-4e5c-b67d-d1fe8e9c9745" />
+<img width="500" height="360" alt="808422338 893899" src="https://github.com/user-attachments/assets/d20cbafa-9b03-4aa1-966b-f21f2b786641" />
+
 
 > 在 iPhone Dynamic Island 上顯示自訂訊息的 iOS Live Activity 專案。
 
