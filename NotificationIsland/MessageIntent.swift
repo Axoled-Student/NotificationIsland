@@ -6,6 +6,7 @@ enum NotificationIcon: String, AppEnum {
     case instagram
     case gmail
     case messages
+    case retro
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation {
         TypeDisplayRepresentation(name: "通知圖示")
@@ -16,7 +17,8 @@ enum NotificationIcon: String, AppEnum {
             .line: DisplayRepresentation(title: "LINE"),
             .instagram: DisplayRepresentation(title: "Instagram"),
             .gmail: DisplayRepresentation(title: "Gmail"),
-            .messages: DisplayRepresentation(title: "訊息")
+            .messages: DisplayRepresentation(title: "訊息"),
+            .retro: DisplayRepresentation(title: "Retro")
         ]
     }
 }
