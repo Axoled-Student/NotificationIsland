@@ -1,0 +1,380 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100000000000000000000001 /* NotificationIslandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* NotificationIslandApp.swift */; };
+		100000000000000000000002 /* MessageActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* MessageActivity.swift */; };
+		100000000000000000000003 /* MessageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000003 /* MessageIntent.swift */; };
+		100000000000000000000004 /* NotificationIslandWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000004 /* NotificationIslandWidget.swift */; };
+		100000000000000000000005 /* NotificationIslandWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000005 /* NotificationIslandWidgetBundle.swift */; };
+		100000000000000000000006 /* NotificationIslandWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 200000000000000000000007 /* NotificationIslandWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		100000000000000000000008 /* LINE.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000012 /* LINE.png */; };
+		100000000000000000000009 /* Instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* Instagram.png */; };
+		100000000000000000000010 /* Gmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* Gmail.png */; };
+		100000000000000000000011 /* Messages.png in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000015 /* Messages.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		100000000000000000000007 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				100000000000000000000006,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		200000000000000000000001 /* NotificationIslandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIslandApp.swift; sourceTree = "<group>"; };
+		200000000000000000000002 /* MessageActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageActivity.swift; sourceTree = "<group>"; };
+		200000000000000000000003 /* MessageIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageIntent.swift; sourceTree = "<group>"; };
+		200000000000000000000004 /* NotificationIslandWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIslandWidget.swift; sourceTree = "<group>"; };
+		200000000000000000000005 /* NotificationIslandWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIslandWidgetBundle.swift; sourceTree = "<group>"; };
+		200000000000000000000006 /* NotificationIsland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationIsland.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000007 /* NotificationIslandWidget.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; includeInIndex = 0; path = NotificationIslandWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000008 /* NotificationIsland-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200000000000000000000009 /* NotificationIslandWidget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200000000000000000000010 /* NotificationIsland.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationIsland.entitlements; sourceTree = "<group>"; };
+		200000000000000000000011 /* NotificationIslandWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationIslandWidget.entitlements; sourceTree = "<group>"; };
+		200000000000000000000012 /* LINE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LINE.png; sourceTree = "<group>"; };
+		200000000000000000000013 /* Instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram.png; sourceTree = "<group>"; };
+		200000000000000000000014 /* Gmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gmail.png; sourceTree = "<group>"; };
+		200000000000000000000015 /* Messages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Messages.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		300000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				400000000000000000000002 /* NotificationIsland */,
+				400000000000000000000003 /* NotificationIslandWidget */,
+				400000000000000000000004 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		400000000000000000000002 /* NotificationIsland */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000001 /* NotificationIslandApp.swift */,
+				200000000000000000000002 /* MessageActivity.swift */,
+				200000000000000000000003 /* MessageIntent.swift */,
+				200000000000000000000008 /* Info.plist */,
+				200000000000000000000010 /* NotificationIsland.entitlements */,
+			);
+			path = NotificationIsland;
+			sourceTree = "<group>";
+		};
+		400000000000000000000003 /* NotificationIslandWidget */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000004 /* NotificationIslandWidget.swift */,
+				200000000000000000000005 /* NotificationIslandWidgetBundle.swift */,
+				200000000000000000000009 /* Info.plist */,
+				200000000000000000000011 /* NotificationIslandWidget.entitlements */,
+				200000000000000000000012 /* LINE.png */,
+				200000000000000000000013 /* Instagram.png */,
+				200000000000000000000014 /* Gmail.png */,
+				200000000000000000000015 /* Messages.png */,
+			);
+			path = NotificationIslandWidget;
+			sourceTree = "<group>";
+		};
+		400000000000000000000004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000006 /* NotificationIsland.app */,
+				200000000000000000000007 /* NotificationIslandWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		500000000000000000000001 /* NotificationIsland */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 700000000000000000000001;
+			buildPhases = (
+                300000000000000000000003,
+                300000000000000000000001,
+                300000000000000000000005,
+                100000000000000000000007,
+            );
+			buildRules = (
+			);
+			dependencies = (
+				600000000000000000000001,
+			);
+			name = NotificationIsland;
+			productName = NotificationIsland;
+			productReference = 200000000000000000000006;
+			productType = "com.apple.product-type.application";
+		};
+		500000000000000000000002 /* NotificationIslandWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 700000000000000000000002;
+			buildPhases = (
+                300000000000000000000004,
+                300000000000000000000002,
+                300000000000000000000006,
+            );
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationIslandWidget;
+			productName = NotificationIslandWidget;
+			productReference = 200000000000000000000007;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		500000000000000000000003 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					500000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					500000000000000000000002 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 700000000000000000000003;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 400000000000000000000001;
+			productRefGroup = 400000000000000000000004;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				500000000000000000000001,
+				500000000000000000000002,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		300000000000000000000005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300000000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000008 /* LINE.png in Resources */,
+				100000000000000000000009 /* Instagram.png in Resources */,
+				100000000000000000000010 /* Gmail.png in Resources */,
+				100000000000000000000011 /* Messages.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		300000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000001,
+				100000000000000000000002,
+				100000000000000000000003,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300000000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000004,
+				100000000000000000000005,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		600000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 500000000000000000000002;
+			targetProxy = 600000000000000000000002;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		600000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 500000000000000000000003 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 500000000000000000000002;
+			remoteInfo = NotificationIslandWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+		700000000000000000000004 /* Project Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_VERSION = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+			};
+			name = Debug;
+		};
+		700000000000000000000005 /* Project Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_VERSION = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+			};
+			name = Release;
+		};
+		700000000000000000000006 /* App Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_OUTPUT_FORMAT = xml;
+				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
+				INFOPLIST_FILE = NotificationIsland/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NotificationIsland;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+			};
+			name = Debug;
+		};
+		700000000000000000000007 /* App Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_OUTPUT_FORMAT = xml;
+				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
+				INFOPLIST_FILE = NotificationIsland/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NotificationIsland;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+			};
+			name = Release;
+		};
+		700000000000000000000008 /* Widget Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_OUTPUT_FORMAT = xml;
+				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
+				INFOPLIST_FILE = NotificationIslandWidget/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NotificationIsland.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		700000000000000000000009 /* Widget Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_OUTPUT_FORMAT = xml;
+				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
+				INFOPLIST_FILE = NotificationIslandWidget/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NotificationIsland.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		700000000000000000000001 /* App config */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700000000000000000000006,
+				700000000000000000000007,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		700000000000000000000002 /* Widget config */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700000000000000000000008,
+				700000000000000000000009,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		700000000000000000000003 /* Project config */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700000000000000000000004,
+				700000000000000000000005,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 500000000000000000000003 /* Project object */;
+}
