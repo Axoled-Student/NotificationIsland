@@ -34,8 +34,13 @@ struct NotificationIslandWidget: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    notificationIcon(context.state.icon, size: 42)
-                        .padding(.leading, 8)
+                    VStack {
+                        Spacer(minLength: 0)
+                        notificationIcon(context.state.icon, size: 42)
+                        Spacer(minLength: 0)
+                    }
+                    .frame(maxHeight: .infinity, alignment: .center)
+                    .padding(.leading, 8)
                 }
 
                 DynamicIslandExpandedRegion(.center) {
