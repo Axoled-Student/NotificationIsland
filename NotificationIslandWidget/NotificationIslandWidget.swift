@@ -34,29 +34,34 @@ struct NotificationIslandWidget: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    notificationIcon(context.state.icon, size: 34)
-                        .padding(.leading, 6)
+                    notificationIcon(context.state.icon, size: 42)
+                        .padding(.leading, 8)
                 }
 
                 DynamicIslandExpandedRegion(.center) {
-                    Text(context.state.title)
-                        .font(.headline)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.75)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, 8)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(context.state.title)
+                            .font(.headline)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.75)
+
+                        Text(context.state.message)
+                            .font(.subheadline)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.72)
+                            .foregroundStyle(.primary)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 4)
                 }
 
-                DynamicIslandExpandedRegion(.bottom) {
-                    Text(context.state.message)
-                        .font(.body)
-                        .lineLimit(4)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 20)
-                        .padding(.bottom, 4)
+                DynamicIslandExpandedRegion(.trailing) {
+                    Text(appDisplayName(for: context.state.icon))
+                        .font(.caption)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.65)
+                        .frame(maxWidth: 76, alignment: .trailing)
+                        .padding(.trailing, 6)
                 }
             } compactLeading: {
                 notificationIcon(context.state.icon, size: 18)
@@ -105,19 +110,38 @@ struct NotificationIslandWidget: Widget {
         }
     }
 
-    private func deepLink(for icon: String) -> URL? {
+    private func appDisplayName(for icon: String) -> String {
         switch icon {
-        case "instagram": return URL(string: "notificationisland://instagram")
-        case "gmail": return URL(string: "notificationisland://gmail")
-        case "messages": return URL(string: "notificationisland://messages")
-        case "retro": return URL(string: "notificationisland://retro")
-        case "pikminBloom": return URL(string: "notificationisland://pikminBloom")
-        case "duolingo": return URL(string: "notificationisland://duolingo")
-        case "investment": return URL(string: "notificationisland://investment")
-        case "taishin": return URL(string: "notificationisland://taishin")
-        case "stressWatch": return URL(string: "notificationisland://stressWatch")
-        case "reddit": return URL(string: "notificationisland://reddit")
-        default: return URL(string: "notificationisland://line")
+        case "line": return "LINE"
+        case "instagram": return "Instagram"
+        case "gmail": return "Gmail"
+        case "messages": return "訊息"
+        case "retro": return "Retro"
+        case "pikminBloom": return "Pikmin Bloom"
+        case "duolingo": return "Duolingo"
+        case "investment": return "投資先生"
+        case "taishin": return "台新銀行"
+        case "stressWatch": return "StressWatch"
+        case "reddit": return "Reddit"
+        default: return "LINE"
+        }
+    }
+
+    private func deepLink(for icon: String) -> URL? {
+        // Directly open the selected app using its app-name:// URL scheme.
+        switch icon {
+        case "line": return URL(string: "line://")
+        case "instagram": return URL(string: "instagram://")
+        case "gmail": return URL(string: "gmail://")
+        case "messages": return URL(string: "messages://")
+        case "retro": return URL(string: "retro://")
+        case "pikminBloom": return URL(string: "pikminbloom://")
+        case "duolingo": return URL(string: "duolingo://")
+        case "investment": return URL(string: "investment://")
+        case "taishin": return URL(string: "taishin://")
+        case "stressWatch": return URL(string: "stresswatch://")
+        case "reddit": return URL(string: "reddit://")
+        default: return URL(string: "line://")
         }
     }
 }
