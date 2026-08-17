@@ -8,6 +8,7 @@ struct MessageActivityAttributes: ActivityAttributes {
         var title: String
         var message: String
         var icon: String
+        var tick: Int
     }
 
     var id: String

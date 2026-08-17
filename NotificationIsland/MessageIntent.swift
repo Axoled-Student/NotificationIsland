@@ -67,7 +67,8 @@ struct ShowMessageIntent: LiveActivityIntent {
         let state = MessageActivityAttributes.ContentState(
             title: safeTitle,
             message: safeMessage,
-            icon: icon.rawValue
+            icon: icon.rawValue,
+            tick: 0
         )
 
         for old in Activity<MessageActivityAttributes>.activities {
@@ -94,26 +95,25 @@ struct ShowMessageIntent: LiveActivityIntent {
         // iOS displays a Live Activity's expanded presentation briefly for an alerting update.
         // Trigger one immediately after starting, then keep the activity alive for 5 seconds.
         // The system still controls the exact expanded-to-compact animation timing.
-        let alertConfig = AlertConfiguration(
-            title: LocalizedStringResource(stringLiteral: safeTitle),
-            body: LocalizedStringResource(stringLiteral: safeMessage),
-            sound: .default
-        )
-
-        // Repeated alerting updates are used experimentally to re-trigger
-        // the Dynamic Island expanded presentation while the activity is alive.
-        // iOS still controls the exact expanded/compact timing.
-        for _ in 0..<6 {
-            await activity.update(
-                ActivityContent(
-                    state: state,
-                    staleDate: nil,
-                    relevanceScore: 100
-                ),
-                alertConfiguration: alertConfig
+        // Experimental: repeated silent updates. These updates do NOT use
+        // alertConfiguration, so they should not repeatedly trigger a new alert.
+        for tick in 0..<10 {
+            let updatedState = MessageActivityAttributes.ContentState(
+                title: safeTitle,
+                message: safeMessage,
+                icon: icon.rawValue,
+                tick: tick
             )
 
-            try? await Task.sleep(for: .milliseconds(800))
+            await activity.update(
+                ActivityContent(
+                    state: updatedState,
+                    staleDate: nil,
+                    relevanceScore: 100
+                )
+            )
+
+            try? await Task.sleep(for: .milliseconds(500))
         }
 
         await activity.end(
@@ -121,7 +121,7 @@ struct ShowMessageIntent: LiveActivityIntent {
                 state: state,
                 staleDate: nil
             ),
-            dismissalPolicy: .immediate
+            dismissalPolicy: ActivityUIDismissalPolicy.immediate
         )
 
         return .result()
