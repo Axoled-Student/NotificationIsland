@@ -78,7 +78,7 @@ struct NotificationIslandWidget: Widget {
             } minimal: {
                 notificationIcon(context.state.icon, size: 18)
             }
-            .widgetURL(URL(string: "notificationisland://\(context.state.icon)"))
+            .widgetURL(deepLink(for: context.state.icon))
         }
     }
 

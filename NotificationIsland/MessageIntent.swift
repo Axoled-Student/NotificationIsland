@@ -87,16 +87,36 @@ struct ShowMessageIntent: LiveActivityIntent {
                 state: state,
                 staleDate: nil
             ),
-            pushType: nil
+            pushType: nil,
+            style: .standard
+        )
+
+        // iOS displays a Live Activity's expanded presentation briefly for an alerting update.
+        // Trigger one immediately after starting, then keep the activity alive for 5 seconds.
+        // The system still controls the exact expanded-to-compact animation timing.
+        let alertConfig = AlertConfiguration(
+            title: LocalizedStringResource(stringLiteral: safeTitle),
+            body: LocalizedStringResource(stringLiteral: safeMessage),
+            sound: .default
+        )
+
+        await activity.update(
+            ActivityContent(
+                state: state,
+                staleDate: nil,
+                relevanceScore: 100
+            ),
+            alertConfiguration: alertConfig
         )
 
         try? await Task.sleep(for: .seconds(5))
+
         await activity.end(
             ActivityContent(
                 state: state,
                 staleDate: nil
             ),
-            dismissalPolicy: ActivityUIDismissalPolicy.immediate
+            dismissalPolicy: .immediate
         )
 
         return .result()
