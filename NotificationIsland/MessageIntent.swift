@@ -100,16 +100,21 @@ struct ShowMessageIntent: LiveActivityIntent {
             sound: .default
         )
 
-        await activity.update(
-            ActivityContent(
-                state: state,
-                staleDate: nil,
-                relevanceScore: 100
-            ),
-            alertConfiguration: alertConfig
-        )
+        // Repeated alerting updates are used experimentally to re-trigger
+        // the Dynamic Island expanded presentation while the activity is alive.
+        // iOS still controls the exact expanded/compact timing.
+        for _ in 0..<6 {
+            await activity.update(
+                ActivityContent(
+                    state: state,
+                    staleDate: nil,
+                    relevanceScore: 100
+                ),
+                alertConfiguration: alertConfig
+            )
 
-        try? await Task.sleep(for: .seconds(5))
+            try? await Task.sleep(for: .milliseconds(800))
+        }
 
         await activity.end(
             ActivityContent(
