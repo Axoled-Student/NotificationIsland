@@ -56,7 +56,7 @@ struct ShowMessageIntent: LiveActivityIntent {
         title: "顯示時間（秒）",
         description: "秒數，可設定 0 到 25 秒。",
         default: 5,
-        inclusiveRange: 0...25
+        inclusiveRange: (lowerBound: 0, upperBound: 25)
     )
     var displaySeconds: Int
 
@@ -64,7 +64,7 @@ struct ShowMessageIntent: LiveActivityIntent {
         title: "顯示時間（毫秒）",
         description: "額外毫秒數，可設定 0 到 999 ms。例如 0 秒 + 500 ms = 500 ms。",
         default: 0,
-        inclusiveRange: 0...999
+        inclusiveRange: (lowerBound: 0, upperBound: 999)
     )
     var displayMilliseconds: Int
 
