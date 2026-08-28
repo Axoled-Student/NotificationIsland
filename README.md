@@ -9,9 +9,7 @@ NotificationIsland is an experimental project built with **SwiftUI, ActivityKit,
 
 You can trigger the App Intent from the **Shortcuts** app and display a custom title, message, and app icon on the Dynamic Island.
 
-> ⚠️ **Currently supports iOS 27 Developer Beta 5 (DB5) ONLY**
->
-> Other iOS versions have not been tested yet.
+> **iOS 27 Beta 5+ compatibility:** the Live Activity now uses ActivityKit's supported transient presentation instead of relying on repeated silent updates. This is intended for iOS 27 Beta 5, Beta 6, Beta 7, and later iOS 27 builds. Exact Dynamic Island presentation timing remains controlled by iOS.
 
 ## ✨ Features
 
@@ -26,8 +24,9 @@ You can display:
 - A notification title
 - A notification message
 - A selectable app icon
+- A custom display duration from **1 to 25 seconds** (default: 5 seconds)
 
-The Live Activity automatically ends after approximately **5 seconds**.
+The app requests a transient Live Activity so iOS presents it in the expanded Dynamic Island. The activity is ended when the selected duration expires, but iOS may end it earlier if the user collapses the Island, locks the device, or leaves the interaction context.
 
 ### App Icons
 

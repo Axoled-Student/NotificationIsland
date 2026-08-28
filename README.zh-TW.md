@@ -9,9 +9,7 @@ NotificationIsland 是一個以 **SwiftUI、ActivityKit、WidgetKit、App Intent
 
 你可以從「捷徑」自動化執行 App Intent，把標題、訊息與 App 圖示顯示到 Dynamic Island。
 
-> ⚠️ **目前僅支援 iOS 27 Developer Beta 5 (DB5)**
->
-> 目前尚未測試其他 iOS 版本。
+> **iOS 27 Beta 5+ 相容性：** Live Activity 已改用 ActivityKit 官方支援的 transient 顯示方式，不再依賴持續送出靜默更新來維持展開。設計目標包含 iOS 27 Beta 5、Beta 6、Beta 7 與後續 iOS 27 版本；實際 Dynamic Island 顯示時間仍由 iOS 控制。
 
 ## ✨ 目前功能
 
@@ -26,8 +24,9 @@ NotificationIsland 是一個以 **SwiftUI、ActivityKit、WidgetKit、App Intent
 - 通知標題
 - 通知訊息
 - 選擇 App 圖示
+- 自訂 **1 到 25 秒**顯示時間（預設 5 秒）
 
-Live Activity 會在啟動後約 **5 秒自動結束**。
+App 會要求 transient Live Activity，讓 iOS 使用展開的 Dynamic Island 顯示；設定時間到後會結束 Live Activity。如果使用者收合 Dynamic Island、鎖定裝置或離開互動情境，iOS 仍可能提早結束。
 
 ### App 圖示
 
