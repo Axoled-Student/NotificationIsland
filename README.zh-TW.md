@@ -60,12 +60,12 @@ https://www.icloud.com/shortcuts/022b6230e2f149198026cb6d905cfaa1
 
 ## 📱 系統需求
 
-- **iOS 27 Developer Beta 5 (DB5)**
+- **iOS 27 Beta 5 或後續 iOS 27 beta／版本**
 - 支援 Dynamic Island 的 iPhone
 - Apple Developer 帳號（自行簽署／側載時使用）
 - Windows 使用者可以使用 GitHub Actions 建立 unsigned IPA，再透過 Sideloadly、iLoader 等工具自行簽署安裝
 
-> ⚠️ 本專案目前以 **iOS 27 Developer Beta 5** 為目標版本，其他版本不保證可以正常使用。
+> 本專案目前採用公開 ActivityKit 行為來支援 **iOS 27 Beta 5+**；Apple 後續 beta 仍可能調整實際 Dynamic Island 顯示行為。
 
 ## 📲 安裝 unsigned IPA
 

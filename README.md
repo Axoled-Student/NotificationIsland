@@ -58,12 +58,12 @@ https://www.icloud.com/shortcuts/022b6230e2f149198026cb6d905cfaa1
 
 ## 📱 Requirements
 
-- **iOS 27 Developer Beta 5 (DB5)**
+- **iOS 27 Beta 5 or later iOS 27 beta/build**
 - An iPhone with Dynamic Island support
 - An Apple Developer account for signing / sideloading
 - Windows users can use GitHub Actions to build an unsigned IPA, then sign and install it using Sideloadly, iLoader, or another legitimate iOS sideloading/signing tool
 
-> ⚠️ This project currently targets **iOS 27 Developer Beta 5**. Other versions are not guaranteed to work.
+> The compatibility path is designed for **iOS 27 Beta 5+** using public ActivityKit behavior. Runtime behavior can still change between Apple beta builds.
 
 ## 📲 Installing the Unsigned IPA
 

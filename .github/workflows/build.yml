@@ -22,6 +22,7 @@ jobs:
 
       - name: Build unsigned app
         run: |
+          set -euo pipefail
           xcodebuild \
             -project NotificationIsland.xcodeproj \
             -scheme NotificationIsland \
@@ -33,15 +34,33 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             INFOPLIST_OUTPUT_FORMAT=xml
 
+      - name: Validate Live Activity build
+        run: |
+          set -euo pipefail
+          APP_PATH="build/Build/Products/Release-iphoneos/NotificationIsland.app"
+          WIDGET_PATH="$APP_PATH/PlugIns/NotificationIslandWidget.appex"
+
+          test -d "$APP_PATH"
+          test -x "$APP_PATH/NotificationIsland"
+          test -d "$WIDGET_PATH"
+          test -f "$WIDGET_PATH/NotificationIslandWidget"
+
+          plutil -lint "$APP_PATH/Info.plist"
+          plutil -lint "$WIDGET_PATH/Info.plist"
+
+          LIVE_ACTIVITIES=$(/usr/libexec/PlistBuddy -c "Print :NSSupportsLiveActivities" "$APP_PATH/Info.plist")
+          test "$LIVE_ACTIVITIES" = "true"
+
       - name: Package unsigned IPA
         run: |
-          set -e
+          set -euo pipefail
           APP_PATH="build/Build/Products/Release-iphoneos/NotificationIsland.app"
           test -d "$APP_PATH"
           rm -rf Payload
           mkdir Payload
           cp -R "$APP_PATH" Payload/
           /usr/bin/zip -qry NotificationIsland-unsigned.ipa Payload
+          unzip -tq NotificationIsland-unsigned.ipa
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4

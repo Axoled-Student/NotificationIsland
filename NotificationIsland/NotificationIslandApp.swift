@@ -83,7 +83,7 @@ struct ContentView: View {
                 .font(.system(size: 50))
             Text("Notification Island")
                 .font(.title2.bold())
-            Text("在「捷徑」中使用「顯示 Dynamic Island 訊息」，即可把文字送到動態島。")
+            Text("在「捷徑」中使用「顯示 Dynamic Island 訊息」，可自訂 1–25 秒顯示時間並把文字送到動態島。")
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
         }
