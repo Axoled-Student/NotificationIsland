@@ -8,6 +8,7 @@ struct MessageActivityAttributes: ActivityAttributes {
         var title: String
         var message: String
         var icon: String
+        var customIconData: Data?
         var tick: Int
     }
 
@@ -18,7 +19,11 @@ struct NotificationIslandWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: MessageActivityAttributes.self) { context in
             HStack(spacing: 10) {
-                notificationIcon(context.state.icon, size: 36)
+                notificationIcon(
+                    presetIcon: context.state.icon,
+                    customIconData: context.state.customIconData,
+                    size: 36
+                )
 
                 VStack(alignment: .leading, spacing: 3) {
                     Text(context.state.title)
@@ -37,11 +42,15 @@ struct NotificationIslandWidget: Widget {
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
                         Spacer(minLength: 0)
-                        notificationIcon(context.state.icon, size: 42)
+                        notificationIcon(
+                            presetIcon: context.state.icon,
+                            customIconData: context.state.customIconData,
+                            size: 42
+                        )
                         Spacer(minLength: 0)
                     }
                     .frame(maxHeight: .infinity, alignment: .center)
-                    .padding(.leading, 8)
+                    .padding(.leading, hasAnyIcon(context.state) ? 8 : 0)
                 }
 
                 DynamicIslandExpandedRegion(.center) {
@@ -62,46 +71,79 @@ struct NotificationIslandWidget: Widget {
                 }
 
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text(appDisplayName(for: context.state.icon))
-                        .font(.caption)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.65)
-                        .frame(maxWidth: 76, alignment: .trailing)
-                        .padding(.trailing, 6)
+                    if let displayName = appDisplayName(for: context.state.icon) {
+                        Text(displayName)
+                            .font(.caption)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.65)
+                            .frame(maxWidth: 76, alignment: .trailing)
+                            .padding(.trailing, 6)
+                    }
                 }
             } compactLeading: {
-                notificationIcon(context.state.icon, size: 18)
+                notificationIcon(
+                    presetIcon: context.state.icon,
+                    customIconData: context.state.customIconData,
+                    size: 18
+                )
             } compactTrailing: {
                 Text(context.state.title)
                     .lineLimit(1)
                     .minimumScaleFactor(0.75)
                     .frame(maxWidth: 72)
             } minimal: {
-                notificationIcon(context.state.icon, size: 18)
+                notificationIcon(
+                    presetIcon: context.state.icon,
+                    customIconData: context.state.customIconData,
+                    size: 18
+                )
             }
             .widgetURL(deepLink(for: context.state.icon))
         }
     }
 
+    private func hasAnyIcon(_ state: MessageActivityAttributes.ContentState) -> Bool {
+        if let data = state.customIconData, UIImage(data: data) != nil {
+            return true
+        }
+        return resourceName(for: state.icon) != nil
+    }
+
     @ViewBuilder
-    private func notificationIcon(_ icon: String, size: CGFloat) -> some View {
-        let imageName = resourceName(for: icon)
-        if let image = UIImage(named: imageName, in: Bundle.main, compatibleWith: nil) {
-            Image(uiImage: image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: size, height: size)
-                .clipShape(RoundedRectangle(cornerRadius: size * 0.22))
-                .accessibilityLabel(imageName)
-        } else {
+    private func notificationIcon(
+        presetIcon: String,
+        customIconData: Data?,
+        size: CGFloat
+    ) -> some View {
+        if let customIconData,
+           let image = UIImage(data: customIconData) {
+            iconImage(image, size: size, accessibilityLabel: "自訂圖示")
+        } else if let imageName = resourceName(for: presetIcon),
+                  let image = UIImage(named: imageName, in: Bundle.main, compatibleWith: nil) {
+            iconImage(image, size: size, accessibilityLabel: imageName)
+        } else if !presetIcon.isEmpty {
             Image(systemName: "message.fill")
                 .font(.system(size: size * 0.72))
                 .frame(width: size, height: size)
         }
     }
 
-    private func resourceName(for icon: String) -> String {
+    private func iconImage(
+        _ image: UIImage,
+        size: CGFloat,
+        accessibilityLabel: String
+    ) -> some View {
+        Image(uiImage: image)
+            .resizable()
+            .scaledToFill()
+            .frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: size * 0.22))
+            .accessibilityLabel(accessibilityLabel)
+    }
+
+    private func resourceName(for icon: String) -> String? {
         switch icon {
+        case "line": return "LINE"
         case "instagram": return "Instagram"
         case "gmail": return "Gmail"
         case "messages": return "Messages"
@@ -112,11 +154,11 @@ struct NotificationIslandWidget: Widget {
         case "taishin": return "Taishin"
         case "stressWatch": return "StressWatch"
         case "reddit": return "Reddit"
-        default: return "LINE"
+        default: return nil
         }
     }
 
-    private func appDisplayName(for icon: String) -> String {
+    private func appDisplayName(for icon: String) -> String? {
         switch icon {
         case "line": return "LINE"
         case "instagram": return "Instagram"
@@ -129,12 +171,11 @@ struct NotificationIslandWidget: Widget {
         case "taishin": return "台新銀行"
         case "stressWatch": return "StressWatch"
         case "reddit": return "Reddit"
-        default: return "LINE"
+        default: return nil
         }
     }
 
     private func deepLink(for icon: String) -> URL? {
-        // Directly open the selected app using its app-name:// URL scheme.
         switch icon {
         case "line": return URL(string: "line://")
         case "instagram": return URL(string: "instagram://")
@@ -147,7 +188,7 @@ struct NotificationIslandWidget: Widget {
         case "taishin": return URL(string: "taishin://")
         case "stressWatch": return URL(string: "stresswatch://")
         case "reddit": return URL(string: "reddit://")
-        default: return URL(string: "line://")
+        default: return nil
         }
     }
 }

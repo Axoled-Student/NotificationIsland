@@ -23,7 +23,8 @@ NotificationIsland 是一個以 **SwiftUI、ActivityKit、WidgetKit、App Intent
 
 - 通知標題
 - 通知訊息
-- 選擇 App 圖示
+- 可選擇內建 App 圖示（**留空時不顯示任何圖示**）
+- 可從照片、檔案或上一個捷徑動作傳入**自訂圖片圖示**
 - 使用 **秒 + 毫秒**自訂顯示時間（預設 5 秒 + 0 ms，總時間最多 25 秒）
 
 捷徑會分別提供 **秒（0–25）**與 **毫秒（0–999）**欄位。例如 `0 秒 + 500 ms` 代表 500 ms，`2 秒 + 250 ms` 代表 2.25 秒，總時間最多 25 秒。App 會要求 transient Live Activity，讓 iOS 使用展開的 Dynamic Island 顯示；如果使用者收合 Dynamic Island、鎖定裝置或離開互動情境，iOS 仍可能提早結束。
@@ -45,7 +46,7 @@ NotificationIsland 是一個以 **SwiftUI、ActivityKit、WidgetKit、App Intent
 | 🏦 | 台新銀行 |
 | 💚 | StressWatch |
 
-圖示會顯示在 Dynamic Island 中，用來模擬對應 App 的通知外觀。
+內建圖示現在是選填；「圖示」留空時不再自動使用 LINE。也可以透過「自訂圖示」傳入圖片，自訂圖片會優先於內建圖示。NotificationIsland 會自動縮小／壓縮自訂圖片，以符合 ActivityKit Live Activity 合計 4 KB 的資料限制。
 
 ### 點擊 Dynamic Island
 

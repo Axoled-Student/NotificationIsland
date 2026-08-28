@@ -23,7 +23,8 @@ You can display:
 
 - A notification title
 - A notification message
-- A selectable app icon
+- An optional built-in app icon (**no icon is shown when left empty**)
+- An optional **custom image icon** supplied from Photos, Files, or a previous Shortcuts action
 - A custom display duration using **seconds + milliseconds** (default: 5 s + 0 ms, maximum total: 25 seconds)
 
 The Shortcut exposes separate **seconds (0–25)** and **milliseconds (0–999)** fields. For example, `0 s + 500 ms` requests 500 ms, while `2 s + 250 ms` requests 2.25 seconds. The total is capped at 25 seconds. The app requests a transient Live Activity so iOS presents it in the expanded Dynamic Island, but iOS may still end it earlier if the user collapses the Island, locks the device, or leaves the interaction context.
@@ -43,7 +44,7 @@ The Shortcut exposes separate **seconds (0–25)** and **milliseconds (0–999)*
 | 🏦 | Taishin Bank |
 | 💚 | StressWatch |
 
-The selected icon is displayed on the Dynamic Island to simulate the appearance of a notification from the corresponding app.
+The built-in icon is optional. Leaving the icon field empty no longer falls back to LINE. You can also provide a custom image through the **Custom Icon** parameter; a custom image takes priority over the selected built-in icon. NotificationIsland resizes/compresses custom images to stay within ActivityKit's 4 KB Live Activity payload limit.
 
 ### Tapping the Dynamic Island
 
