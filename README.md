@@ -24,9 +24,9 @@ You can display:
 - A notification title
 - A notification message
 - A selectable app icon
-- A custom display duration from **1 to 25 seconds** (default: 5 seconds)
+- A custom display duration using **seconds + milliseconds** (default: 5 s + 0 ms, maximum total: 25 seconds)
 
-The app requests a transient Live Activity so iOS presents it in the expanded Dynamic Island. The activity is ended when the selected duration expires, but iOS may end it earlier if the user collapses the Island, locks the device, or leaves the interaction context.
+The Shortcut exposes separate **seconds (0–25)** and **milliseconds (0–999)** fields. For example, `0 s + 500 ms` requests 500 ms, while `2 s + 250 ms` requests 2.25 seconds. The total is capped at 25 seconds. The app requests a transient Live Activity so iOS presents it in the expanded Dynamic Island, but iOS may still end it earlier if the user collapses the Island, locks the device, or leaves the interaction context.
 
 ### App Icons
 
