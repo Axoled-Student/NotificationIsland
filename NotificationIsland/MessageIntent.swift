@@ -37,11 +37,11 @@ enum NotificationIcon: String, AppEnum {
 
 struct ShowMessageIntent: LiveActivityIntent {
     static var title: LocalizedStringResource = "顯示 Dynamic Island 訊息"
-    static var description = IntentDescription("顯示 Dynamic Island 訊息，可自訂顯示 1 到 25 秒。")
+    static var description = IntentDescription("顯示 Dynamic Island 訊息，可用秒與毫秒自訂顯示時間。")
     static var openAppWhenRun: Bool = false
 
-    private static let minimumDisplaySeconds = 1
-    private static let maximumDisplaySeconds = 25
+    private static let minimumDisplayMilliseconds = 1
+    private static let maximumDisplayMilliseconds = 25_000
 
     @Parameter(title: "標題")
     var titleText: String
@@ -54,37 +54,52 @@ struct ShowMessageIntent: LiveActivityIntent {
 
     @Parameter(
         title: "顯示時間（秒）",
-        description: "Dynamic Island 顯示時間。可設定 1 到 25 秒；實際顯示仍由 iOS 系統控制。",
+        description: "秒數，可設定 0 到 25 秒。",
         default: 5,
-        inclusiveRange: 1...25
+        inclusiveRange: 0...25
     )
     var displaySeconds: Int
+
+    @Parameter(
+        title: "顯示時間（毫秒）",
+        description: "額外毫秒數，可設定 0 到 999 ms。例如 0 秒 + 500 ms = 500 ms。",
+        default: 0,
+        inclusiveRange: 0...999
+    )
+    var displayMilliseconds: Int
 
     init() {
         self.icon = .line
         self.displaySeconds = 5
+        self.displayMilliseconds = 0
     }
 
     init(
         titleText: String,
         message: String,
         icon: NotificationIcon = .line,
-        displaySeconds: Int = 5
+        displaySeconds: Int = 5,
+        displayMilliseconds: Int = 0
     ) {
         self.titleText = titleText
         self.message = message
         self.icon = icon
         self.displaySeconds = displaySeconds
+        self.displayMilliseconds = displayMilliseconds
     }
 
     func perform() async throws -> some IntentResult {
         let safeTitle = String(titleText.prefix(80))
         let safeMessage = String(message.prefix(300))
-        let boundedDisplaySeconds = min(
-            max(displaySeconds, Self.minimumDisplaySeconds),
-            Self.maximumDisplaySeconds
+        let requestedDisplayMilliseconds =
+            (displaySeconds * 1_000) + displayMilliseconds
+        let boundedDisplayMilliseconds = min(
+            max(requestedDisplayMilliseconds, Self.minimumDisplayMilliseconds),
+            Self.maximumDisplayMilliseconds
         )
-        let expiryDate = Date().addingTimeInterval(TimeInterval(boundedDisplaySeconds))
+        let expiryDate = Date().addingTimeInterval(
+            Double(boundedDisplayMilliseconds) / 1_000.0
+        )
 
         let attributes = MessageActivityAttributes(id: UUID().uuidString)
         let state = MessageActivityAttributes.ContentState(
@@ -116,7 +131,7 @@ struct ShowMessageIntent: LiveActivityIntent {
             style: .transient
         )
 
-        try? await Task.sleep(for: .seconds(boundedDisplaySeconds))
+        try? await Task.sleep(for: .milliseconds(boundedDisplayMilliseconds))
 
         await activity.end(
             ActivityContent(
